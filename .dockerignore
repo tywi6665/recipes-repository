@@ -1,0 +1,16 @@
+# JS stuff
+
+/node_modules
+
+# Dev stuff
+
+.github
+.git
+.gitignore
+/env
+.env
+README.md
+.vscode
+.idea
+
+db.sqlite3
