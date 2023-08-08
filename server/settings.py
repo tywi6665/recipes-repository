@@ -10,17 +10,21 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
-from dotenv import load_dotenv
+import dotenv
 from pathlib import Path
 import django_on_heroku
 import dj_database_url
 
-load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-FRONTEND_DIR = os.path.join(BASE_DIR.parent, 'frontend')
+FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend')
+# print("---------", FRONTEND_DIR)
+
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
