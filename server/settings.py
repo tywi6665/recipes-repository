@@ -128,7 +128,6 @@ WSGI_APPLICATION = 'server.wsgi.application'
 # }
 DATABASES = {}
 DATABASES['default'] = dj_database_url.config(conn_max_age=600)
-DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880
 
 
 # Password validation
