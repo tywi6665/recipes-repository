@@ -33,6 +33,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
@@ -88,12 +89,6 @@ DOMAIN = "localhost:3000"
 if not DEBUG:
     PROTOCOL = "https"
     DOMAIN = ""
-
-# define which origins are allowed
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000"
-]
 
 
 ROOT_URLCONF = 'server.urls'
@@ -167,9 +162,15 @@ USE_TZ = True
 # Configure app for Heroku deployment
 django_on_heroku.settings(locals())
 
-MEDIA_URL = '/media/'
-STATIC_URL = '/django_static/' 
-STATIC_ROOT = BASE_DIR / 'django_static'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'build/static')
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

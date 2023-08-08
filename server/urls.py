@@ -17,8 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from apps.accounts.urls import accounts_urlpatterns
+from django.views.decorators.cache import never_cache
+
+from .views import hello, FrontendAppView
 
 urlpatterns = [
+    path(r'', never_cache(FrontendAppView.as_view()), name='index'),
     path('admin/', admin.site.urls),
 ]
 
