@@ -60,7 +60,7 @@ const App = () => {
       ) {
         redirectTo = "/catalog";
       } else {
-        redirectTo = location.pathname;
+        redirectTo = "/login";
       }
       set_CurrentUser(user, redirectTo, navigate, dispatch);
     }
@@ -71,6 +71,17 @@ const App = () => {
       <Navbar />
       {contextHolder}
       <Routes>
+        <Route
+          path="/"
+          element={
+            <Login
+              dispatch={dispatch}
+              displayMessage={displayMessage}
+              destroyMessage={destroyMessage}
+            />
+          }
+          errorElement={<ErrorPage />}
+        />
         <Route
           path="login"
           element={
