@@ -42,13 +42,8 @@ const Navbar = () => {
         lg={10}
       >
         <Link to="catalog">
-          <Title className="!m-[5px]">Dog-Ear</Title>
+          <Title className="!m-[5px]">The Recipe Repository</Title>
         </Link>
-        {!screens.xs ? (
-          <Title className="!m-[5px]" level={3}>
-            Recipe Repository
-          </Title>
-        ) : null}
       </Col>
       <Col
         flex="auto"

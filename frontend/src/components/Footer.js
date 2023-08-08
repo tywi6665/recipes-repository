@@ -25,7 +25,7 @@ const Footer = () => {
         </Text>
       ) : (
         <Text italic strong>
-          Mmmmm this looks tasty!
+          Welcome to the Recipe Repo
         </Text>
       )}
     </Footer>
